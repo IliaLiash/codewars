@@ -3,8 +3,6 @@ def comp(array1, array2):
         return False
     array1.sort(key=lambda x:abs(x))
     array2.sort()
-    print(array1)
-    print(array2)
     count = 0
     if len(array1) != len(array2):
         return False
