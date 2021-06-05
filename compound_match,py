@@ -1,0 +1,32 @@
+def compound_match(words, target):
+    res = []
+    for i in range(len(words)):       
+        if len(res) == 2:
+            break
+        try:
+            if len(target.split(words[-i])) != 0 and len(res) < 2:    
+                if (target.split(words[-i])[0] == '') and (target.split(words[-i])[1] in words):
+                    if target.split(words[-i])[1] not in res:
+                        res.append(target.split(words[-i])[1])
+                elif (target.split(words[-i])[1] == '') and (target.split(words[-i])[0] in words):
+                    if target.split(words[-i])[0] not in res:
+                        res.append(target.split(words[-i])[0])
+            
+            elif len(target.split(words[i])) != 0 and len(res) < 2:
+                if (target.split(words[i])[0] == '') and (target.split(words[i])[1] in words):
+                    if target.split(words[i])[1] not in res:
+                        res.append(target.split(words[i])[1])
+                elif (target.split(words[i])[1] == '') and (target.split(words[i])[0] in words):
+                    if target.split(words[i])[0] not in res:
+                        res.append(target.split(words[i])[0])                
+        except:
+            pass
+    try:
+        res = sorted(res, key=lambda x:(words.index(x)))
+        if target.index(res[0]) <= target.index(res[1]):
+            res += [[words.index(res[0]), words.index(res[1])]]
+        else:
+            res += [[words.index(res[1]), words.index(res[0])]]
+    except:
+        pass
+    return res if len(res) > 2 else None
