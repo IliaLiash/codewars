@@ -1,13 +1,16 @@
 import statistics
 
+
 TOWNS = ["Rome", "London", "Paris", "NY", "Vancouver", "Sydney", "Bangkok", "Tokyo",
          "Beijing", "Lima", "Montevideo", "Caracas", "Madrid", "Berlin"]
+
 
 def mean(town, strng):
     if town not in TOWNS:
         return -1
     strng = strng.split('\n')
     s = ''
+
     for element in strng:
         if town in element:
             for sym in element:
@@ -21,6 +24,7 @@ def variance(town, strng):
         return -1
     strng = strng.split('\n')
     s = ''
+
     for element in strng:
         if town in element:
             for sym in element:
