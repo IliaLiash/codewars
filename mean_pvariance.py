@@ -14,7 +14,7 @@ def mean(town, strng):
                 if sym.isdigit() or sym in ' .':
                     s += sym
     res = [float(i) for i in s.split()]
-    return statistics.mean(res) if len(res) > 0 else -1
+    return statistics.mean(res)
     
 def variance(town, strng):
     if town not in TOWNS:
@@ -27,4 +27,4 @@ def variance(town, strng):
                 if sym.isdigit() or sym in ' .':
                     s += sym
     res = [float(i) for i in s.split()]
-    return statistics.pvariance(res) if len(res) > 0 else -1
+    return statistics.pvariance(res)
